@@ -9,11 +9,16 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+import { IndiaDataComponent } from './india-data/india-data.component';
+import { IndiaNewsComponent } from './india-news/india-news.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    IndiaDataComponent,
+    IndiaNewsComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +26,8 @@ import { MatTableModule } from '@angular/material/table';
     AppRoutingModule,
     AgGridModule.withComponents([]),
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
