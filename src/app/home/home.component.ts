@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { ChartType } from 'chart.js';
+import { MultiDataSet, Label, Colors } from 'ng2-charts';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +13,11 @@ export class HomeComponent implements OnInit {
   covidGlobalData;
   allCountryData;
 
+  doughnutChartLabels: Label[] = [];
+  doughnutChartData: MultiDataSet = [];
+  doughnutChartType: ChartType = 'doughnut';
+  doughnutChartColors: Colors[] = [];
+
   constructor(private http: HttpClient) { }
 
   displayedColumns: string[] = ['country', 'cases', 'todayCases', 'deaths', 'todayDeaths', 'recovered', 'active', 'critical', 'casesPerOneMillion', 'deathsPerOneMillion'];
@@ -19,11 +26,17 @@ export class HomeComponent implements OnInit {
   dataSource: any;
 
   ngOnInit() {
-    this.http.get('https://thevirustracker.com/free-api?global=stats').subscribe(
+
+    // this.http.get('https://thevirustracker.com/free-api?global=stats').subscribe(
+    this.http.get('https://corona.lmao.ninja/all').subscribe(
       (res) => {
         if (res) {
-          // console.log(res['results'][0]);
-          this.covidGlobalData = res['results'][0];
+          console.log(res);
+          // this.covidGlobalData = res['results'][0];
+          this.covidGlobalData = res;
+          this.doughnutChartLabels = ['Total Cases', 'Total Recovered', 'Total Active', 'Total Deaths'];
+          this.doughnutChartData = [res['cases'], res['recovered'], res['active'], res['deaths']];
+          this.doughnutChartColors = [{ backgroundColor: ["#0101DF", "#04B404", '#FE2E2E', '#A4A4A4'] }];
         }
       }
     );

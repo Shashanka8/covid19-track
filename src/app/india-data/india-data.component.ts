@@ -63,11 +63,13 @@ export class IndiaDataComponent implements OnInit {
 
   ngOnInit(): void {
     // this.dataSource = stateData;
-    this.http.get('https://thevirustracker.com/free-api?countryTotal=IN').subscribe(
+    // this.http.get('https://thevirustracker.com/free-api?countryTotal=IN').subscribe(
+    this.http.get('https://corona.lmao.ninja/countries/IN').subscribe(
       (res) => {
         if (res) {
-          // console.log(res['countrydata'][0]);
-          this.countryData = res['countrydata'][0];
+          console.log(res);
+          // this.countryData = res['countrydata'][0];
+          this.countryData = res;
         }
       }
     );

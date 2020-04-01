@@ -1,1 +1,36 @@
-{{indiaNews | json}}
+<!-- {{indiaNews | json}} -->
+<div class="container mt-5" *ngIf="indiaNews">
+    <div *ngFor="let item of indiaNews">
+        <div class="row">
+            <div class="col-md-3">
+                <mat-card class="news-card">
+                    <mat-card-header>
+                        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                        <mat-card-title>{{item.title}}</mat-card-title>
+                        <mat-card-subtitle>{{item.time}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <!-- <img mat-card-image *ngIf="item.image" src="../../assets/images/corona.webp" alt="Image"> -->
+                    <img mat-card-image src="{{item.image}}" alt="Image">
+                    <mat-card-content>
+                        <p>
+                            <a href="{{item.url}}">
+                                <b>Click To Read More</b>
+                            </a>
+                        </p>
+                    </mat-card-content>
+                    <!-- <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                    </mat-card-actions> -->
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!indiaNews">
+    <div class="text-center text-danger pt-5" style="height: 75vh;">
+        <h1>Site Under Maintenance </h1>
+        <p>No News Available At The Moment </p>
+    </div>
+</div>
