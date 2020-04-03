@@ -13,18 +13,18 @@ export class IndiaNewsComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('https://thevirustracker.com/free-api?countryNewsTotal=IN').subscribe(
-      (res) => {
-        if (res) {
-          // console.log(res['countrynewsitems']);
-          let newVal = Object.values(res['countrynewsitems'][0]);
-          let len = newVal.length;
-          // console.log(len)
-          this.indiaNews = newVal.splice(len - 20, len).reverse();
-          console.log(this.indiaNews);
-        }
-      }
-    )
+    // this.http.get('https://thevirustracker.com/free-api?countryNewsTotal=IN').subscribe(
+    //   (res) => {
+    //     if (res) {
+    //       // console.log(res['countrynewsitems']);
+    //       let newVal = Object.values(res['countrynewsitems'][0]);
+    //       let len = newVal.length;
+    //       // console.log(len)
+    //       this.indiaNews = newVal.splice(len - 20, len).reverse();
+    //       console.log(this.indiaNews);
+    //     }
+    //   }
+    // );
   }
 
 }

@@ -67,7 +67,7 @@ export class IndiaDataComponent implements OnInit {
     this.http.get('https://corona.lmao.ninja/countries/IN').subscribe(
       (res) => {
         if (res) {
-          console.log(res);
+          // console.log(res);
           // this.countryData = res['countrydata'][0];
           this.countryData = res;
         }
@@ -83,6 +83,10 @@ export class IndiaDataComponent implements OnInit {
             element['confirmed'] = element['confirmedCasesIndian'] + element['confirmedCasesForeign'];
             // console.log(element)
           });
+          this.stateData.sort((a, b) => {
+            return b.confirmed - a.confirmed
+          });
+          // console.log(this.stateData);
           this.dataSource = this.stateData;
           let gdata = res['lastRefreshed'].split('T');
           let gtime = gdata[1].split(':');
@@ -92,7 +96,7 @@ export class IndiaDataComponent implements OnInit {
           this.updateTime = gtime[0] + ":" + gtime[1];
         }
       }
-    )
+    );
   }
 
 }

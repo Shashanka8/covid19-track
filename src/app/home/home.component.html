@@ -2,29 +2,30 @@
 
 <div class="container-fuild mb-3">
     <div class="row mt-3" *ngIf="covidGlobalData">
-        <div class="col-md-6">
+        <div class="col-12 col-md-6">
             <div class="row">
-                <div class="col-md-6 col-sm-6 text-center p-3">
+                <div class="col-md-6 col-sm-6 text-center p-md-3">
                     <h1>Total Cases</h1>
                     <h2>{{covidGlobalData.cases}}</h2>
                 </div>
-                <div class="col-md-6 col-sm-6 text-center p-3">
+                <div class="col-md-6 col-sm-6 text-center p-md-3">
                     <h1>Total Recovered</h1>
                     <h2>{{covidGlobalData.recovered}}</h2>
                 </div>
-                <div class="col-md-6 col-sm-6 text-center p-3">
+                <div class="col-md-6 col-sm-6 text-center p-md-3">
                     <h1>Total Active</h1>
                     <h2>{{covidGlobalData.active}}</h2>
                 </div>
-                <div class="col-md-6 col-sm-6 text-center p-3">
+                <div class="col-md-6 col-sm-6 text-center p-md-3">
                     <h1>Total Deaths</h1>
                     <h2>{{covidGlobalData.deaths}}</h2>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="chart-wrapper" style="position: relative; height:40vh; width:40vw">
-                <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
+        <div class="col-md-1"></div>
+        <div class="col-12 col-md-4">
+            <div class="chart-wrapper" style="height:350px; width:350px">
+                <canvas height="100%" width="100%" baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
                     [chartType]="doughnutChartType" [colors]="doughnutChartColors">
                 </canvas>
             </div>
@@ -32,59 +33,17 @@
     </div>
 </div>
 <hr>
-
-
-
-<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-    <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef>Country </th>
-        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="total_cases">
-        <th mat-header-cell *matHeaderCellDef> Total Cases </th>
-        <td mat-cell *matCellDef="let element"> {{element.total_cases}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="total_recovered">
-        <th mat-header-cell *matHeaderCellDef> Total Recovered </th>
-        <td mat-cell *matCellDef="let element"> {{element.total_recovered}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="total_deaths">
-        <th mat-header-cell *matHeaderCellDef> Total Deaths </th>
-        <td mat-cell *matCellDef="let element"> {{element.total_deaths}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="total_new_cases_today">
-        <th mat-header-cell *matHeaderCellDef> Total New Cases Today </th>
-        <td mat-cell *matCellDef="let element"> {{element.total_new_cases_today}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="total_new_deaths_today">
-        <th mat-header-cell *matHeaderCellDef> Total New Deaths Today </th>
-        <td mat-cell *matCellDef="let element"> {{element.total_new_deaths_today}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="total_active_cases">
-        <th mat-header-cell *matHeaderCellDef> Total Active Cases </th>
-        <td mat-cell *matCellDef="let element"> {{element.total_active_cases}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="total_serious_cases">
-        <th mat-header-cell *matHeaderCellDef> Total Serious Cases</th>
-        <td mat-cell *matCellDef="let element"> {{element.total_serious_cases}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table> -->
+<div class="text-right pr-2">
+    <small> <b>*</b> The <b>Today's</b> columns for China display the previous day changes (as China reports after the
+        day is over). <br> For all other countries, the <b>Today's</b> columns display the changes for the current day
+        while still in progress.</small>
+</div>
+<hr>
 
 <table mat-table *ngIf="dataSource" [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="country">
-        <th mat-header-cell *matHeaderCellDef>Country/Others </th>
+        <th mat-header-cell *matHeaderCellDef>Country, Others </th>
         <td mat-cell *matCellDef="let element"> {{element.country}} </td>
     </ng-container>
 
@@ -119,7 +78,7 @@
     </ng-container>
 
     <ng-container matColumnDef="critical">
-        <th mat-header-cell *matHeaderCellDef> Crtitical</th>
+        <th mat-header-cell *matHeaderCellDef> Crtitical, Serious</th>
         <td mat-cell *matCellDef="let element"> {{element.critical}} </td>
     </ng-container>
 

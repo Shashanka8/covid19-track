@@ -1,0 +1,25 @@
+<h1>Confirmed Cases</h1>
+<hr>
+<div>
+    <div class="chart-wrapper">
+        <canvas baseChart [datasets]="barChartData1" [labels]="barChartLabels1" [options]="barChartOptions1"
+            [plugins]="barChartPlugins1" [legend]="barChartLegend1" [chartType]="barChartType1">
+        </canvas>
+    </div>
+</div>
+<hr>
+<h1>Recovered Cases</h1>
+<hr>
+<div class="chart-wrapper">
+    <canvas baseChart [datasets]="barChartData2" [labels]="barChartLabels2" [options]="barChartOptions2"
+        [plugins]="barChartPlugins2" [legend]="barChartLegend2" [chartType]="barChartType2">
+    </canvas>
+</div>
+<hr>
+<h1>Deaths Cases</h1>
+<hr>
+<div class="chart-wrapper">
+    <canvas baseChart [datasets]="barChartData3" [labels]="barChartLabels3" [options]="barChartOptions3"
+        [plugins]="barChartPlugins3" [legend]="barChartLegend3" [chartType]="barChartType3">
+    </canvas>
+</div>

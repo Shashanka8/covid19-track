@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
     this.http.get('https://corona.lmao.ninja/all').subscribe(
       (res) => {
         if (res) {
-          console.log(res);
+          // console.log(res);
           // this.covidGlobalData = res['results'][0];
           this.covidGlobalData = res;
           this.doughnutChartLabels = ['Total Cases', 'Total Recovered', 'Total Active', 'Total Deaths'];
@@ -42,7 +42,8 @@ export class HomeComponent implements OnInit {
     );
 
     // this.http.get('https://thevirustracker.com/free-api?countryTotals=ALL').subscribe(
-    this.http.get('https://corona.lmao.ninja/countries?sort={cases}').subscribe(
+    // this.http.get('https://corona.lmao.ninja/countries?sort={cases}').subscribe(
+    this.http.get('https://corona.lmao.ninja/countries').subscribe(
       (res) => {
         if (res) {
           // console.log(res['countryitems']);
@@ -53,6 +54,9 @@ export class HomeComponent implements OnInit {
           //   console.log('ele ', element[index + 1]);
           // });
           this.allCountryData = res;
+          this.allCountryData.sort((a, b) => {
+            return b.cases - a.cases
+          });
           this.dataSource = this.allCountryData;
         }
       }

@@ -17,6 +17,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { IndiaHistoryComponent } from './india-history/india-history.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     AppComponent,
     HomeComponent,
     IndiaDataComponent,
-    IndiaNewsComponent
+    IndiaNewsComponent,
+    IndiaHistoryComponent
   ],
   imports: [
     BrowserModule,
