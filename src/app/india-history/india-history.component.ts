@@ -83,7 +83,7 @@ export class IndiaHistoryComponent implements OnInit {
       // console.log(element)
       var oneDate = new Date(element);
       // this.allDate = (oneDate.getMonth() + 1) + "/" + oneDate.getDate() + "/" + oneDate.getFullYear().toString().slice(0, 2);
-      this.allDate = (oneDate.getDate() + "/" + oneDate.getMonth() + 1) + "/" + oneDate.getFullYear().toString().slice(0, 2);
+      this.allDate = oneDate.getDate() + "/" + (oneDate.getMonth() + 1) + "/" + oneDate.getFullYear().toString().slice(0, 2);
       this.allFormatDate.push(this.allDate);
       // console.log(this.allDate);
     });
