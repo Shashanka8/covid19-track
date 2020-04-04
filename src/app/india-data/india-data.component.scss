@@ -1,7 +1,7 @@
 table {
   width: 100%;
 }
-.container, table{
+.container-fluid, table{
   overflow-y: hidden;
 }
 
@@ -12,36 +12,80 @@ table {
 }
 .mat-header-cell {
   font-size: 14px;
+  background-color: rgb(223, 219, 219);
+  color: #333;
 }
 
 .mat-cell:first-child, .mat-header-cell:first-child {
   text-align: left !important;
+  width: 150px;
+}
+
+.mat-row:first-child {
+  display: none;
+}
+
+.mat-row:nth-child(odd) {
+  background-color: rgb(231, 231, 231);
+}
+
+.example-container {
+  height: 60vh;
+  overflow: auto;
 }
 
 @media only screen and (max-width: 360px) {
-    .col-md-3 h1 {
+    .half {
+      width: 50%;
+      padding: 0;
+    }
+    .col-md-6 h1 {
       font-size: 16px;
     }
-    .col-md-3 h2 {
+    .col-md-6 h2 {
+      font-size: 14px;
+    }
+    .col-md-6 h4 {
+      font-size: 12px;
+    }
+    .update-info {
       font-size: 12px;
     }
 }
 
 @media only screen and (min-width: 361px) and (max-width: 440px) {
-    .col-md-3 h1 {
+    .half {
+      width: 50%;
+      padding: 0;
+    }
+    .col-md-6 h1 {
       font-size: 18px;
     }
-    .col-md-3 h2 {
+    .col-md-6 h2 {
+      font-size: 16px;
+    }
+     .col-md-6 h4 {
+      font-size: 14px;
+    }
+    .update-info {
       font-size: 14px;
     }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 575.98px) {
-    
+    .half {
+      width: 50%;
+      padding: 0;
+    }
+    .chart-wrapper{
+      margin-left: 100px;
+    }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767.98px) {
-    
+    .chart-wrapper{
+      margin-left: 200px;
+    }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991.98px) {
@@ -51,4 +95,3 @@ table {
 @media only screen and (min-width: 992px) {
 
 }
-

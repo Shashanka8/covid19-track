@@ -12,6 +12,11 @@ table {
 }
 .mat-header-cell {
   font-size: 14px;
+  background-color: rgb(223, 219, 219) ;
+  color: #333;
+}
+.mat-row:nth-child(even) {
+  background-color: rgb(231, 231, 231);
 }
 
 .mat-cell:first-child, .mat-header-cell:first-child {
@@ -19,25 +24,42 @@ table {
   width: 150px;
 }
 
-@media only screen and (max-width: 360px) {
-    .col-md-6 h1 {
-      font-size: 16px;
-    }
-    .col-md-6 h2 {
-      font-size: 12px;
-    }
+.example-container {
+  height: 60vh;
+  overflow: auto;
 }
 
-@media only screen and (min-width: 361px) and (max-width: 440px) {
+@media only screen and (max-width: 360px) {
+    .half {
+      width: 50%;
+      padding: 0;
+    }
     .col-md-6 h1 {
-      font-size: 18px;
+      font-size: 16px;
     }
     .col-md-6 h2 {
       font-size: 14px;
     }
 }
 
+@media only screen and (min-width: 361px) and (max-width: 440px) {
+    .half {
+      width: 50%;
+      padding: 0;
+    }
+    .col-md-6 h1 {
+      font-size: 18px;
+    }
+    .col-md-6 h2 {
+      font-size: 16px;
+    }
+}
+
 @media only screen and (min-width: 481px) and (max-width: 575.98px) {
+    .half {
+      width: 50%;
+      padding: 0;
+    }
     .chart-wrapper{
       margin-left: 100px;
     }

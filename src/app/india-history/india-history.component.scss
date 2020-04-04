@@ -2,3 +2,30 @@
 //    width: 500px;
 //    height: 400px;
 // }
+
+@media only screen and (max-width: 360px) {
+    h1 {
+        font-size: 16px;
+    }
+    h3 {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 361px) and (max-width: 440px) {
+    h1 {
+        font-size: 18px;
+    }
+    h3 {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 575.98px) {
+    h1 {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 16px;
+    }
+}

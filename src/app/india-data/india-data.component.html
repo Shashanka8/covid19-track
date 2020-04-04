@@ -1,70 +1,88 @@
-<div class="container-fuild">
+<div class="container-fuild mb-3">
+    <div class="text-right pr-2 pt-2 update-info" *ngIf="countryData">
+        <p><i>Last Updated - {{countryData.lastupdatedtime}}</i></p>
+    </div>
     <div class="row" *ngIf="countryData">
-        <div class="col-md-3 col-sm-6 text-center p-md-3">
-            <h1>Total Cases</h1>
-            <h2>{{countryData.cases}}</h2>
+        <div class="col-md-6 p-md-3">
+            <div class="row">
+                <div class="col-md-6 half col-sm-6 text-center p-md-3 text-primary">
+                    <h1>Total Cases</h1>
+                    <h2>{{countryData.confirmed}}</h2>
+                    <h4>[ +{{countryDeltaData.confirmed}} ]</h4>
+                </div>
+                <div class="col-md-6 half col-sm-6 text-center p-md-3 text-success">
+                    <h1>Total Recovered</h1>
+                    <h2>{{countryData.recovered}}</h2>
+                    <h4>[ +{{countryDeltaData.recovered}} ]</h4>
+                </div>
+                <div class="col-md-6 half col-sm-6 text-center p-md-3 text-danger">
+                    <h1>Total Active</h1>
+                    <h2>{{countryData.active}}</h2>
+                    <h4>[ +{{countryDeltaData.active}} ]</h4>
+                </div>
+                <div class="col-md-6 half col-sm-6 text-center p-md-3 text-secondary">
+                    <h1>Total Deaths</h1>
+                    <h2>{{countryData.deaths}}</h2>
+                    <h4>[ +{{countryDeltaData.deaths}} ]</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-3 col-sm-6 text-center p-md-3">
-            <h1>Total Recovered</h1>
-            <h2>{{countryData.recovered}}</h2>
-        </div>
-        <div class="col-md-3 col-sm-6 text-center p-md-3">
-            <h1>Total Unresolved</h1>
-            <h2>-</h2>
-        </div>
-        <div class="col-md-3 col-sm-6 text-center p-md-3">
-            <h1>Total Deaths</h1>
-            <h2>{{countryData.deaths}}</h2>
-        </div>
-        <div class="col-md-3 col-sm-6 text-center p-md-3">
-            <h1>Total New Case Today</h1>
-            <h2>{{countryData.todayCases}}</h2>
-        </div>
-        <div class="col-md-3 col-sm-6 text-center p-md-3">
-            <h1>Total New Deaths Today</h1>
-            <h2>{{countryData.todayDeaths}}</h2>
-        </div>
-        <div class="col-md-3 col-sm-6 text-center p-md-3">
-            <h1>Total Active Cases</h1>
-            <h2>{{countryData.active}}</h2>
-        </div>
-        <div class="col-md-3 col-sm-6 text-center p-md-3">
-            <h1>Total Serious Cases</h1>
-            <h2>{{countryData.critical}}</h2>
+        <div class="col-md-1"></div>
+        <div class="col-md-4 p-md-3">
+            <div class="chart-wrapper" style="height:350px; width:350px">
+                <canvas height="100%" width="100%" baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
+                    [chartType]="doughnutChartType" [colors]="doughnutChartColors">
+                </canvas>
+            </div>
         </div>
     </div>
 </div>
 <hr>
 
-<div class="text-right mr-3">
-    <p>
-        <b>Last Updated - {{updateTime}}</b> <br>
-        <b>Date - {{updateDate}}</b>
-    </p>
+<div class="example-container">
+    <table mat-table *ngIf="dataSource" [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef>State/UT </th>
+            <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="confirmed">
+            <th mat-header-cell *matHeaderCellDef> Total Cases</th>
+            <td mat-cell *matCellDef="let element"> {{element.confirmed}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delta.confirmed">
+            <th mat-header-cell *matHeaderCellDef> Today's Cases </th>
+            <td mat-cell *matCellDef="let element"> {{element.delta.confirmed}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="deaths">
+            <th mat-header-cell *matHeaderCellDef> Total Deaths </th>
+            <td mat-cell *matCellDef="let element"> {{element.deaths}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delta.deaths">
+            <th mat-header-cell *matHeaderCellDef> Today's Deaths </th>
+            <td mat-cell *matCellDef="let element"> {{element.delta.deaths}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="active">
+            <th mat-header-cell *matHeaderCellDef> Total Active </th>
+            <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="recovered">
+            <th mat-header-cell *matHeaderCellDef> Total Recovered </th>
+            <td mat-cell *matCellDef="let element"> {{element.recovered}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastupdatedtime">
+            <th mat-header-cell *matHeaderCellDef> Last Updated </th>
+            <td mat-cell *matCellDef="let element"> {{element.lastupdatedtime}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
 </div>
-
-<table mat-table *ngIf="dataSource" [dataSource]="dataSource" class="mat-elevation-z8">
-
-    <ng-container matColumnDef="loc">
-        <th mat-header-cell *matHeaderCellDef>State/UT </th>
-        <td mat-cell *matCellDef="let element"> {{element.loc}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="confirmed">
-        <th mat-header-cell *matHeaderCellDef> Total Cases </th>
-        <td mat-cell *matCellDef="let element"> {{element.confirmed}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="discharged">
-        <th mat-header-cell *matHeaderCellDef> Total Recovered </th>
-        <td mat-cell *matCellDef="let element"> {{element.discharged}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="deaths">
-        <th mat-header-cell *matHeaderCellDef> Total Deaths </th>
-        <td mat-cell *matCellDef="let element"> {{element.deaths}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
