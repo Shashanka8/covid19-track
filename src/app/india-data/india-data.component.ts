@@ -33,7 +33,7 @@ export class IndiaDataComponent implements OnInit {
 
     this.http.get('https://api.covid19india.org/data.json').subscribe(
       (res) => {
-        console.log(res['statewise']);
+        // console.log(res['statewise']);
         this.stateData = res['statewise'];
         this.countryData = res['statewise'][0];
         this.dataSource = this.stateData;

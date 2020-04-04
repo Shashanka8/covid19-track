@@ -33,6 +33,10 @@ table {
   height: 60vh;
   overflow: auto;
 }
+.chart-wrapper {
+  height:350px; 
+  width:350px;
+}
 
 @media only screen and (max-width: 360px) {
     .half {
@@ -49,6 +53,14 @@ table {
       font-size: 12px;
     }
     .update-info {
+      font-size: 12px;
+    }
+    .chart-wrapper {
+      height:300px; 
+      width:300px;
+      margin-left: 40px;
+    }
+    .mat-header-cell, .mat-cell {
       font-size: 12px;
     }
 }
@@ -68,6 +80,14 @@ table {
       font-size: 14px;
     }
     .update-info {
+      font-size: 14px;
+    }
+    .chart-wrapper {
+      height:300px; 
+      width:300px;
+      margin-left: 50px;
+    }
+    .mat-header-cell, .mat-cell {
       font-size: 14px;
     }
 }
