@@ -65,7 +65,7 @@ export class IndiaHistoryComponent implements OnInit {
     this.deathValue = [];
     this.recoveredValue = [];
 
-    var startDate = new Date("2020-01-28"); //YYYY-MM-DD
+    var startDate = new Date("2020-03-06"); //YYYY-MM-DD
     var endDate = new Date(); //YYYY-MM-DD
 
     var getDateArray = function (start, end) {

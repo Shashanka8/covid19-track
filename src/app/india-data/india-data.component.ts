@@ -24,7 +24,7 @@ export class IndiaDataComponent implements OnInit {
   doughnutChartColors: Colors[] = [];
 
   // displayedColumns: string[] = ['state', 'confirmed', 'recovered', 'deaths', 'active'];
-  displayedColumns: string[] = ['state', 'confirmed', 'delta.confirmed', 'deaths', 'delta.deaths', 'active', 'recovered', 'lastupdatedtime'];
+  displayedColumns: string[] = ['state', 'confirmed', 'deltaconfirmed', 'deaths', 'deltadeaths', 'active', 'recovered', 'lastupdatedtime'];
 
 
   constructor(private http: HttpClient) { }
@@ -37,7 +37,7 @@ export class IndiaDataComponent implements OnInit {
         this.stateData = res['statewise'];
         this.countryData = res['statewise'][0];
         this.dataSource = this.stateData;
-        this.countryDeltaData = res['statewise'][0]['delta'];
+        // this.countryDeltaData = res['statewise'][0]['delta];
 
         this.doughnutChartLabels = ['Total Cases', 'Total Recovered', 'Total Active', 'Total Deaths'];
         this.doughnutChartData = [this.countryData['confirmed'], this.countryData['recovered'], this.countryData['active'], this.countryData['deaths']];
